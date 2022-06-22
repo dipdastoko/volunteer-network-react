@@ -6,3 +6,8 @@
 .header {
     text-decoration: none;
 }
+
+.searchbox {
+    margin-left: 25vw;
+    margin-right: 25vw;
+}
