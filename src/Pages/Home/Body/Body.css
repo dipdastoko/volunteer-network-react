@@ -1,10 +1,13 @@
-.eventCard {
+.eventGrid {
     display: grid;
     grid-template-columns: auto auto auto auto;
     row-gap: 20px;
     column-gap: 20px;
+}
+
+.eventCard {
+    height: 400px;
     width: 270px;
-    height: 320px;
 }
 
 .eventImg {
@@ -15,7 +18,9 @@
 
 .eventName {
     position: relative;
+    /* float: left; */
     bottom: 80px;
+    /* left: 95px; */
     width: 270px;
     height: 80px;
     padding: 20px;

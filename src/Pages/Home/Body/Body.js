@@ -11,7 +11,7 @@ const Body = () => {
     }, [])
     return (
 
-        <div className='eventCard'>
+        <div className='eventGrid ms-5 mt-5'>
             {
                 events.map(event => <Events key={event._id} event={event}></Events>)
             }

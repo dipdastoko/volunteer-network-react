@@ -4,10 +4,13 @@ import './Body.css';
 
 const Events = ({ event }) => {
     return (
-        <Link className='text-decoration-none text-dark fw-bold' to='/home'>
-            <img className='eventImg' src={event.img} alt="" />
-            <div className='eventName'>{event.name}</div>
-        </Link>
+        <div className='eventCard'>
+            <Link className='text-decoration-none text-dark fw-bold' to='/login'>
+                <img className='eventImg' src={event.img} alt="" />
+                <div className='eventName'>{event.name}</div>
+
+            </Link>
+        </div>
     );
 };
 
