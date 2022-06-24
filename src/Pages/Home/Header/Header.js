@@ -1,10 +1,12 @@
 import React from 'react';
 import { Navbar, Nav, Form, InputGroup, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 import './Header.css';
 
 const Header = () => {
     let activeStyle = { color: 'red' };
+    const { user, logOut } = useAuth();
     return (
         <div className='header'>
             <Navbar bg="light" expand="lg">
@@ -34,13 +36,24 @@ const Header = () => {
                             <NavLink to='home' className='text-decoration-none' style={({ isActive }) => isActive ? activeStyle : undefined}>Blog</NavLink>
                         </Nav.Link>
 
-                        <Nav.Link className='mx-4 text-decoration-none'>
-                            <button type="button" className="btn btn-primary">Register</button>
-                        </Nav.Link>
+                        {user.email ?
+                            <>
+                                <Nav.Link>
+                                    <h5>{user.displayName}</h5>
+                                </Nav.Link>
+                                <Nav.Link>
+                                    <Button onClick={logOut}>Log Out</Button>
+                                </Nav.Link>
+                            </> :
+                            <>
+                                <Nav.Link className='mx-4 text-decoration-none'>
+                                    <button type="button" className="btn btn-primary">Register</button>
+                                </Nav.Link>
 
-                        <Nav.Link>
-                            <button type="button" className="btn btn-dark">Admin</button>
-                        </Nav.Link>
+                                <Nav.Link>
+                                    <button type="button" className="btn btn-dark">Admin</button>
+                                </Nav.Link>
+                            </>}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
