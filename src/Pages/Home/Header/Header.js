@@ -35,11 +35,11 @@ const Header = () => {
                         </Nav.Link>
 
                         <Nav.Link className='mx-4 text-decoration-none'>
-                            <button type="button" class="btn btn-primary">Register</button>
+                            <button type="button" className="btn btn-primary">Register</button>
                         </Nav.Link>
 
                         <Nav.Link>
-                            <button type="button" class="btn btn-dark">Admin</button>
+                            <button type="button" className="btn btn-dark">Admin</button>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
