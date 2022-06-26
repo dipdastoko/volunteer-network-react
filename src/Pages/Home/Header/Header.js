@@ -12,47 +12,50 @@ const Header = () => {
             <Navbar bg="light" expand="lg">
 
                 {/* navbar brand that stays left of header */}
-                <Navbar.Brand href="#home" className='ms-5'>
+                <Navbar.Brand className='ms-5'>
                     <NavLink to='/home'><img src="https://i.ibb.co/ZGgQqRs/Group-1329.png" alt="" /></NavLink>
                 </Navbar.Brand>
-
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto me-5">
-                        <Nav.Link>
-                            <NavLink style={({ isActive }) => isActive ? activeStyle : undefined} className='mx-4 text-decoration-none' to='home'>Home</NavLink>
-                        </Nav.Link>
+                        <Nav.Item>
+                            <NavLink style={({ isActive }) => isActive ? activeStyle : undefined} className='mx-4 text-decoration-none' to='/home'>Home</NavLink>
+                        </Nav.Item>
 
-                        <Nav.Link>
-                            <NavLink to='home' style={({ isActive }) => isActive ? activeStyle : undefined} className='text-decoration-none'>Donation</NavLink>
-                        </Nav.Link>
+                        <Nav.Item>
+                            <NavLink to='/home' style={({ isActive }) => isActive ? activeStyle : undefined} className='text-decoration-none'>Donation</NavLink>
+                        </Nav.Item>
 
-                        <Nav.Link>
-                            <NavLink className='mx-4 text-decoration-none' to='home' style={({ isActive }) => isActive ? activeStyle : undefined}>Events</NavLink>
-                        </Nav.Link>
+                        <Nav.Item>
+                            <NavLink className='mx-4 text-decoration-none' to='/home' style={({ isActive }) => isActive ? activeStyle : undefined}>Events</NavLink>
+                        </Nav.Item>
 
-                        <Nav.Link>
-                            <NavLink to='home' className='text-decoration-none' style={({ isActive }) => isActive ? activeStyle : undefined}>Blog</NavLink>
-                        </Nav.Link>
+                        <Nav.Item>
+                            <NavLink to='/home' className='text-decoration-none' style={({ isActive }) => isActive ? activeStyle : undefined}>Blog</NavLink>
+                        </Nav.Item>
 
                         {user.email ?
                             <>
-                                <Nav.Link>
+
+                                <Nav.Item className='mx-4'>
                                     <h5>{user.displayName}</h5>
-                                </Nav.Link>
-                                <Nav.Link>
+                                </Nav.Item>
+
+                                <Nav.Item>
                                     <Button onClick={logOut}>Log Out</Button>
-                                </Nav.Link>
+                                </Nav.Item>
+
+
                             </> :
                             <>
-                                <Nav.Link className='mx-4 text-decoration-none'>
+                                <Nav.Item className='mx-4 text-decoration-none'>
                                     <button type="button" className="btn btn-primary">Register</button>
-                                </Nav.Link>
+                                </Nav.Item>
 
-                                <Nav.Link>
+                                <Nav.Item>
                                     <button type="button" className="btn btn-dark">Admin</button>
-                                </Nav.Link>
+                                </Nav.Item>
                             </>}
                     </Nav>
                 </Navbar.Collapse>

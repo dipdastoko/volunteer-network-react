@@ -51,7 +51,8 @@ const Registration = () => {
                 },
                 body: JSON.stringify(newVolunteer)
             })
-                .then(res => res.json());
+                .then(res => res.json())
+                .then(data => console.log(data));
 
             alert('registration successful');
             navigate('/home');
