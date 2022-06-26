@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Registration = () => {
     const { user } = useAuth();
     let { displayName, email } = user;
+
     const { eventId } = useParams();
+    const navigate = useNavigate();
 
     const [events, setEvents] = useState([]);
 
@@ -15,15 +17,12 @@ const Registration = () => {
 
     const nameChange = e => {
         setName(e.target.value);
-        console.log(name);
     };
     const dateChange = e => {
         setDate(e.target.value);
-        console.log('date', date);
     };
     const descriptionChange = e => {
         setDescription(e.target.value);
-        console.log(description);
     };
 
 
@@ -42,17 +41,24 @@ const Registration = () => {
 
     // register button handler
     const handleRegister = e => {
+        const sure = window.confirm('Confirm Registration?');
+        if (sure) {
+            // send data to server
+            fetch('http://localhost:5000/volunteer', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newVolunteer)
+            })
+                .then(res => res.json());
 
-        // send data to server
-        fetch('http://localhost:5000/volunteer', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newVolunteer)
-        })
-            .then(res => res.json())
+            alert('registration successful');
+            navigate('/home');
+        }
+
         e.preventDefault();
+
     }
     return (
         <div>
@@ -76,7 +82,7 @@ const Registration = () => {
                 <br />
 
                 {/* submit button */}
-                <input onClick={() => handleRegister()} type="submit" value="Register" />
+                <input onClick={handleRegister} type="submit" value="Register" />
             </form>
         </div >
     );
