@@ -1,13 +1,23 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle, logOut } = useAuth();
+    const { signInUsingGoogle, setIsLoading } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const redirect_uri = location.state?.from;
+    const handleSignInUsingGoogle = () => {
+        signInUsingGoogle()
+            .then(result => {
+                navigate(redirect_uri.pathname);
+            })
+            .finally(() => setIsLoading(false))
+    }
     return (
         <div>
             <h2>Login</h2>
-            <button onClick={signInUsingGoogle}>SignIn using google</button>
-            <button onClick={logOut}>LogOut</button>
+            <button onClick={handleSignInUsingGoogle}>SignIn using google</button>
         </div>
     );
 };

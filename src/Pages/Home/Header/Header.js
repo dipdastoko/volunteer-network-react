@@ -13,7 +13,7 @@ const Header = () => {
 
                 {/* navbar brand that stays left of header */}
                 <Navbar.Brand href="#home" className='ms-5'>
-                    <NavLink to='home'><img src="https://i.ibb.co/ZGgQqRs/Group-1329.png" alt="" /></NavLink>
+                    <NavLink to='/home'><img src="https://i.ibb.co/ZGgQqRs/Group-1329.png" alt="" /></NavLink>
                 </Navbar.Brand>
 
 
