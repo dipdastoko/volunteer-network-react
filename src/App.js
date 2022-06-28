@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthProvider';
+import Events from './Pages/Events/Events';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import Registration from './Pages/Registration/Registration';
@@ -16,6 +17,7 @@ function App() {
             <Route path='/home' element={<Home></Home>} />
             <Route path='/login' element={<Login></Login>} />
             <Route path='/registration/:eventId' element={<PrivateRoute><Registration /></PrivateRoute>} />
+            <Route path='/events' element={<Events></Events>} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

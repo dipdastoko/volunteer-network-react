@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Registration = () => {
-    const { user } = useAuth();
-    let { displayName, email } = user;
+    const { allContext } = useAuth(); //all the functions from firebase
+    const { volunteers } = useAuth(); //all the volunteers data from database
+    const { events } = useAuth(); //all the events data from database
+
+    let { displayName, email } = allContext.user; //logged in user's name and email
 
     const { eventId } = useParams();
     const navigate = useNavigate();
-
-    const [events, setEvents] = useState([]);
 
     const [name, setName] = useState(displayName);
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
 
+    //for changing the values which are automatically filled(if a user wishes)
     const nameChange = e => {
         setName(e.target.value);
     };
@@ -25,14 +27,6 @@ const Registration = () => {
         setDescription(e.target.value);
     };
 
-
-    // load all the data from database
-    useEffect(() => {
-        fetch('http://localhost:5000/events')
-            .then(res => res.json())
-            .then(data => setEvents(data));
-    }, []);
-
     // search the clicked event from home
     const event = events.find(event => event._id === eventId);
 
@@ -41,21 +35,29 @@ const Registration = () => {
 
     // register button handler
     const handleRegister = e => {
-        const sure = window.confirm('Confirm Registration?');
-        if (sure) {
-            // send data to server
-            fetch('http://localhost:5000/volunteer', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newVolunteer)
-            })
-                .then(res => res.json())
-                .then(data => console.log(data));
+        const alreadyRegistered = volunteers.find(volunteer => volunteer.email === email && volunteer.event === event.name);
 
-            alert('registration successful');
-            navigate('/home');
+        if (alreadyRegistered) {
+            alert('You are already registered in this event');
+        }
+
+        else {
+            const sure = window.confirm('Confirm Registration?');
+            if (sure) {
+                // send data to server
+                fetch('http://localhost:5000/volunteer', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newVolunteer)
+                })
+                    .then(res => res.json())
+                    .then(data => console.log('volunteer registered'));
+
+                alert('registration successful');
+                navigate('/home');
+            }
         }
 
         e.preventDefault();

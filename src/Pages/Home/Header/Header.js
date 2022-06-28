@@ -6,7 +6,8 @@ import './Header.css';
 
 const Header = () => {
     let activeStyle = { color: 'red' };
-    const { user, logOut } = useAuth();
+    const { allContext } = useAuth();
+    const { user, logOut } = allContext;
     return (
         <div className='header'>
             <Navbar bg="light" expand="lg">
@@ -28,7 +29,7 @@ const Header = () => {
                         </Nav.Item>
 
                         <Nav.Item>
-                            <NavLink className='mx-4 text-decoration-none' to='/home' style={({ isActive }) => isActive ? activeStyle : undefined}>Events</NavLink>
+                            <NavLink className='mx-4 text-decoration-none' to='/events' style={({ isActive }) => isActive ? activeStyle : undefined}>Events</NavLink>
                         </Nav.Item>
 
                         <Nav.Item>
@@ -49,13 +50,13 @@ const Header = () => {
 
                             </> :
                             <>
-                                <Nav.Item className='mx-4 text-decoration-none'>
+                                <Nav.Link className='mx-4 text-decoration-none'>
                                     <button type="button" className="btn btn-primary">Register</button>
-                                </Nav.Item>
+                                </Nav.Link>
 
-                                <Nav.Item>
+                                <Nav.Link>
                                     <button type="button" className="btn btn-dark">Admin</button>
-                                </Nav.Item>
+                                </Nav.Link>
                             </>}
                     </Nav>
                 </Navbar.Collapse>
@@ -65,7 +66,7 @@ const Header = () => {
             <div className='searchbox'>
                 <InputGroup className="my-3">
                     <Form.Control
-                        placeholder="Recipient's username"
+                        placeholder="Search..."
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
                     />
