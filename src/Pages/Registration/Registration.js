@@ -4,9 +4,7 @@ import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router-dom';
 
 const Registration = () => {
-    const { allContext } = useAuth(); //all the functions from firebase
-    const { volunteers } = useAuth(); //all the volunteers data from database
-    const { events } = useAuth(); //all the events data from database
+    const { allContext, volunteers, events } = useAuth();
 
     let { displayName, email } = allContext.user; //logged in user's name and email
 
