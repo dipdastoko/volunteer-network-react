@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Registration = () => {
     const { allContext } = useAuth(); //all the functions from firebase
@@ -65,6 +66,7 @@ const Registration = () => {
     }
     return (
         <div>
+            <Link to='/home'><img className='mb-4' style={{ width: '300px' }} src="https://i.ibb.co/ZGgQqRs/Group-1329.png" alt="" /> </Link>
             <h2>Resgistration</h2>
             <form action="">
                 {/* name */}

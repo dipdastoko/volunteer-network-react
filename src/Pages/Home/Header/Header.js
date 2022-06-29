@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Form, InputGroup, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import './Header.css';
@@ -61,20 +61,6 @@ const Header = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-
-            <h2>I Grow By Helping People In Need.</h2>
-            <div className='searchbox'>
-                <InputGroup className="my-3">
-                    <Form.Control
-                        placeholder="Search..."
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
-                    />
-                    <Button variant="primary" id="button-addon2">
-                        Button
-                    </Button>
-                </InputGroup>
-            </div>
         </div >
     );
 };
