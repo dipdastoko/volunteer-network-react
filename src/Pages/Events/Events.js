@@ -1,9 +1,12 @@
 import React from 'react';
+import useAuth from '../../Hooks/useAuth';
 
 const Events = () => {
+
+    console.log('hello')
     return (
         <div>
-            <h2>Events</h2>
+            {/* <h2>{user.displayName}'s Events</h2> */}
         </div>
     );
 };

@@ -7,7 +7,7 @@ const useAllVolunteers = () => {
         fetch('http://localhost:5000/allvolunteers')
             .then(res => res.json())
             .then(data => setVolunteers(data));
-    }, [volunteers]);
+    }, []);
     return volunteers;
 
 }

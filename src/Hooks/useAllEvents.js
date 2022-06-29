@@ -6,7 +6,7 @@ const useAllEvents = () => {
         fetch('http://localhost:5000/events')
             .then(res => res.json())
             .then(data => setEvents(data));
-    }, [events]);
+    }, []);
     return events;
 }
 export default useAllEvents;

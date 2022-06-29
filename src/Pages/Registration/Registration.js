@@ -58,6 +58,7 @@ const Registration = () => {
 
                 alert('registration successful');
                 navigate('/home');
+                window.location.reload(true);
             }
         }
 

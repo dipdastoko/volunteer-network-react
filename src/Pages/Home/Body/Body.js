@@ -1,14 +1,17 @@
 import { Form, InputGroup, Button } from 'react-bootstrap'; import React, { useEffect, useState } from 'react';
 import './Body.css';
 import Events from './Events';
+import useAuth from '../../../Hooks/useAuth';
 
 const Body = () => {
-    const [events, setEvents] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/events')
-            .then(res => res.json())
-            .then(data => setEvents(data));
-    }, [])
+    // const [events, setEvents] = useState([]);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/events')
+    //         .then(res => res.json())
+    //         .then(data => setEvents(data));
+    // }, []);
+    const { events } = useAuth();
+    console.log('hello');
     return (
         <>
             <h2>I Grow By Helping People In Need.</h2>
