@@ -25,7 +25,7 @@ const Header = () => {
                         </Nav.Item>
 
                         <Nav.Item>
-                            <NavLink to='/home' style={({ isActive }) => isActive ? activeStyle : undefined} className='text-decoration-none'>Donation</NavLink>
+                            <NavLink to='/donation' style={({ isActive }) => isActive ? activeStyle : undefined} className='text-decoration-none'>Donation</NavLink>
                         </Nav.Item>
 
                         <Nav.Item>
@@ -33,7 +33,7 @@ const Header = () => {
                         </Nav.Item>
 
                         <Nav.Item>
-                            <NavLink to='/home' className='text-decoration-none' style={({ isActive }) => isActive ? activeStyle : undefined}>Blog</NavLink>
+                            <NavLink to='/blog' className='text-decoration-none' style={({ isActive }) => isActive ? activeStyle : undefined}>Blog</NavLink>
                         </Nav.Item>
 
                         {user.email ?
