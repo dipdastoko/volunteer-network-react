@@ -6,6 +6,7 @@ import Donation from './Pages/Donation/Donation';
 import Events from './Pages/Events/Events';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
+import NotFound from './Pages/NotFound/NotFound';
 import Registration from './Pages/Registration/Registration';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
@@ -22,6 +23,7 @@ function App() {
             <Route path='/blog' element={<Blog />} />
             <Route path='/registration/:eventId' element={<PrivateRoute><Registration /></PrivateRoute>} />
             <Route path='/events' element={<PrivateRoute><Events /></PrivateRoute>} />
+            <Route path='*' element={<NotFound />}></Route>
           </Routes>
         </BrowserRouter>
       </AuthProvider>
