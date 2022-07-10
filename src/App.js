@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthProvider';
+import Admin from './Pages/Admin/Admin';
+import AdminLogin from './Pages/Admin/AdminLogin';
 import Blog from './Pages/Blog/Blog';
 import Donation from './Pages/Donation/Donation';
 import Events from './Pages/Events/Events';
@@ -23,8 +25,12 @@ function App() {
             <Route path='/blog' element={<Blog />} />
             <Route path='/registration/:eventId' element={<PrivateRoute><Registration /></PrivateRoute>} />
             <Route path='/events' element={<PrivateRoute><Events /></PrivateRoute>} />
+            <Route path='adminLogin' element={<AdminLogin />} />
+            <Route path='admin' element={<Admin />} />
             <Route path='*' element={<NotFound />}></Route>
+
           </Routes>
+
         </BrowserRouter>
       </AuthProvider>
     </div>

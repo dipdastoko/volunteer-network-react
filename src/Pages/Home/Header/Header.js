@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import './Header.css';
 
@@ -8,6 +8,10 @@ const Header = () => {
     let activeStyle = { color: 'red' };
     const { allContext } = useAuth();
     const { user, logOut } = allContext;
+    const navigate = useNavigate();
+    const handleAdmin = () => {
+        navigate('/adminLogin');
+    }
     return (
         <div className='header'>
             <Navbar bg="light" expand="lg">
@@ -51,11 +55,11 @@ const Header = () => {
                             </> :
                             <>
                                 <Nav.Link className='mx-4 text-decoration-none'>
-                                    <button type="button" className="btn btn-primary">Register</button>
+                                    <button onClick={() => navigate('/login')} type="button" className="btn btn-primary">Register</button>
                                 </Nav.Link>
 
                                 <Nav.Link>
-                                    <button type="button" className="btn btn-dark">Admin</button>
+                                    <button onClick={handleAdmin} type="button" className="btn btn-dark">Admin</button>
                                 </Nav.Link>
                             </>}
                     </Nav>
