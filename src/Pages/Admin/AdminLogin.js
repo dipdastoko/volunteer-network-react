@@ -37,7 +37,7 @@ const AdminLogin = () => {
     return (
         <div>
             <h2>Admin Login</h2>
-            <Form>
+            <Form className='mx-5'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control onChange={getEmail} type="email" placeholder="Enter email" />
