@@ -1,7 +1,7 @@
 # Volunteer Network website
 
-This is a demo webiste for volunteer reqruitment. A person who is willing to participate in any social work can register in a preferred event through this website.
-https://volunteer-network-2883a.web.app/
+This is a demo webiste for volunteer reqruitment. A person who is willing to participate in any social work can register in a preferred event through this website. </br>
+Live Site: https://volunteer-network-2883a.web.app/
 
 
 ## Technology used to build this website:
