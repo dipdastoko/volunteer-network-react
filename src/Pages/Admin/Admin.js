@@ -1,9 +1,14 @@
 import React from 'react';
+import useAuth from '../../Hooks/useAuth';
+import VolunteersList from './VolunteersList';
 
 const Admin = () => {
+    const { volunteers } = useAuth();
     return (
         <div>
-            <h2>Admin</h2>
+            {
+                volunteers.map(volunteer => <VolunteersList volunteer={volunteer} />)
+            }
         </div>
     );
 };
