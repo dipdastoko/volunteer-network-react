@@ -12,7 +12,7 @@ const Events = () => {
     const handleCancel = (id) => {
         const sure = window.confirm('Are you sure?');
         if (sure) {
-            fetch(`http://localhost:5000/volunteer/${id}`, {
+            fetch(`https://blooming-dawn-19951.herokuapp.com/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

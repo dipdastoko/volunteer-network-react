@@ -44,7 +44,7 @@ const Registration = () => {
             const sure = window.confirm('Confirm Registration?');
             if (sure) {
                 // send data to server
-                fetch('http://localhost:5000/volunteer', {
+                fetch('https://blooming-dawn-19951.herokuapp.com/volunteer', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
